@@ -8,6 +8,16 @@ import * as vscode from "vscode";
 // This method is called when your extension is activated
 // このメソッドは拡張機能が有効化されたときに呼び出されます
 
+function helloWorld() {
+	// Display a message box to the user
+	// ユーザーにメッセージボックスを表示します
+	const now = new Date();
+	const msg = `Hello VS Code. Current time is ${now.toLocaleTimeString()}`;
+	// vscode.window.showInformationMessage(msg);
+	// 情報メッセージを表示する例（コメントアウト）
+	vscode.window.showWarningMessage(msg);
+}
+
 // Your extension is activated the very first time the command is executed
 // コマンドが初めて実行されたときに拡張機能が有効化されます
 export function activate(context: vscode.ExtensionContext) {
@@ -32,14 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
 		() => {
 			// The code you place here will be executed every time your command is executed
 			// ここに記述したコードはコマンドが実行されるたびに実行されます
-
-			// Display a message box to the user
-			// ユーザーにメッセージボックスを表示します
-			const now = new Date();
-			const msg = `Hello VS Code. Current time is ${now.toLocaleTimeString()}`;
-			// vscode.window.showInformationMessage(msg);
-			// 情報メッセージを表示する例（コメントアウト）
-			vscode.window.showWarningMessage(msg);
+			helloWorld();
 		},
 	);
 
