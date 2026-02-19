@@ -20,6 +20,7 @@
 		]
 	},
 	"scripts": {
+		"preinstall": "pnpm audit --audit-level high",
 		"vscode:prepublish": "pnpm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
