@@ -27,21 +27,21 @@
 
 - **strict モード**: `tsconfig.json` で `"strict": true` が有効
 - **ESLint ルール**:
-  - `curly`: warn（中括弧の省略禁止）
-  - `eqeqeq`: warn（厳密等価演算子を使用）
-  - `no-throw-literal`: warn（リテラルのスロー禁止）
-  - `semi`: warn（セミコロン必須）
+  - `curly`: warn (中括弧の省略禁止)
+  - `eqeqeq`: warn (厳密等価演算子を使用)
+  - `no-throw-literal`: warn (リテラルのスロー禁止)
+  - `semi`: warn (セミコロン必須)
   - `@typescript-eslint/naming-convention`: import は camelCase または PascalCase
-- **コメント**: 日英併記のスタイル（英語コメントの下に日本語コメント）
+- **コメント**: 日英併記のスタイル (英語コメントの下に日本語コメント)
 
 ## よく使うコマンド
 
-| コマンド           | 説明                                                |
-| ------------------ | --------------------------------------------------- |
-| `pnpm run compile` | TypeScript をコンパイル                             |
-| `pnpm run watch`   | ファイル変更を監視して自動コンパイル                |
-| `pnpm run lint`    | ESLint で `src/` を検査                             |
-| `pnpm run test`    | `vscode-test` でテスト実行（事前に compile + lint） |
+| コマンド           | 説明                                              |
+| ------------------ | ------------------------------------------------- |
+| `pnpm run compile` | TypeScript をコンパイル                           |
+| `pnpm run watch`   | ファイル変更を監視して自動コンパイル              |
+| `pnpm run lint`    | ESLint で `src/` を検査                           |
+| `pnpm run test`    | `vscode-test` でテスト実行(事前に compile + lint) |
 
 ## 開発フロー
 
