@@ -4,6 +4,45 @@ VSCode拡張の公式チュートリアルやってみる。
 
 [Your First Extension | Visual Studio Code Extension API](https://code.visualstudio.com/api/get-started/your-first-extension)
 
+## セキュリティ対応
+
+### 脆弱性の解決 (2026-02-19)
+
+`pnpm audit` で検出された脆弱性のうち、high重大度の **minimatch** の脆弱性を `pnpm.overrides` で解決しました。
+
+#### 対応内容
+
+- **minimatch** の脆弱性（ReDoS）を解決
+  - パッチレベル更新: `10.2.0` → `10.2.1`
+  - 破壊的変更なし、安全に適用可能
+  - `package.json` に以下を追加:
+    ```json
+    "pnpm": {
+      "overrides": {
+        "minimatch": ">=10.2.1"
+      }
+    }
+    ```
+
+#### 結果
+
+- 脆弱性の件数: **3件 → 2件** (high重大度を削減)
+- 残存する脆弱性（moderate: ajv、low: diff）は開発依存関係のみで、エンドユーザーへの影響なし
+- 全テスト、lint、コンパイルが正常動作することを確認済み
+
+#### BiomeとVitestへの移行検討について
+
+ESLintとMochaの脆弱性対策として、BiomeとVitestへの移行を検討しましたが、以下の理由により見送りました：
+
+- **Biome（ESLint代替）**: 技術的には可能だが、VS Code拡張機能開発のエコシステムから外れるリスクあり
+- **Vitest（Mocha代替）**: `@vscode/test-cli` が Mocha 専用のため、技術的に移行不可能
+  - VS Code拡張機能のテストは Extension Development Host（特殊なElectron環境）で実行される必要がある
+  - `@vscode/test-electron` との統合が必須
+
+現状、パッチレベルでの脆弱性対応を行い、親パッケージの将来的な更新によって残存脆弱性の自然解消を待つ方針としました。
+
+---
+
 (以下自動生成されたREADMEそのまま)
 
 ---

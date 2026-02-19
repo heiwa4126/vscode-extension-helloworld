@@ -20,6 +20,7 @@
 		]
 	},
 	"scripts": {
+		"preinstall": "pnpm audit --audit-level high",
 		"vscode:prepublish": "pnpm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
@@ -36,5 +37,10 @@
 		"eslint": "^10.0.0",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.56.0"
+	},
+	"pnpm": {
+		"overrides": {
+			"minimatch": ">=10.2.1"
+		}
 	}
 }
