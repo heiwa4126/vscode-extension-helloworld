@@ -3,6 +3,7 @@
 VSCode 拡張の公式チュートリアルやってみました。  
 [Your First Extension | Visual Studio Code Extension API](https://code.visualstudio.com/api/get-started/your-first-extension)
 
+- "unbundled" で作った
 - README は VSCode 拡張の README になるので、このファイルと分けた
 - テスト追加
 - VSIX を dist/ 以下に出すようにした
