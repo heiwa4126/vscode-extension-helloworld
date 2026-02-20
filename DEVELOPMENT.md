@@ -8,6 +8,10 @@ VSCode 拡張の公式チュートリアルやってみました。
 - VSIX を dist/ 以下に出すようにした
 - アイコン追加
 
+## TODO
+
+- [minimatch](https://www.npmjs.com/package/minimatch?activeTab=versions) v3.1.3が出たら調整すること
+
 ## セットアップ
 
 - 依存関係のインストール: `pnpm install`
