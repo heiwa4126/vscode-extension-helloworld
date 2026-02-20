@@ -15,6 +15,14 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"label": "terminate watch",
+			"type": "shell",
+			"command": "pkill -f \"npm run watch\" || true",
+			"presentation": {
+				"close": true
+			}
 		}
 	]
 }
