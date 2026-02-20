@@ -37,14 +37,11 @@ export function activate(context: vscode.ExtensionContext) {
 	// The commandId parameter must match the command field in package.json
 	// commandId パラメータは package.json の command フィールドと一致させる必要があります
 
-	const disposable = vscode.commands.registerCommand(
-		"helloworld.helloWorld",
-		() => {
-			// The code you place here will be executed every time your command is executed
-			// ここに記述したコードはコマンドが実行されるたびに実行されます
-			helloWorld();
-		},
-	);
+	const disposable = vscode.commands.registerCommand("helloworld.helloWorld", () => {
+		// The code you place here will be executed every time your command is executed
+		// ここに記述したコードはコマンドが実行されるたびに実行されます
+		helloWorld();
+	});
 
 	context.subscriptions.push(disposable);
 }

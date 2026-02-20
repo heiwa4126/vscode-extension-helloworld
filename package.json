@@ -36,7 +36,8 @@
 		"test": "vscode-test",
 		"vsix": "pnpm run lint && pnpm run compile && node -e \"require('node:fs').mkdirSync('dist',{recursive:true});\" && node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const out='dist/'+p.name+'-'+p.version+'.vsix'; execSync('pnpm exec vsce package --out '+out,{stdio:'inherit'});\"",
 		"vsix:install": "node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const vsix='dist/'+p.name+'-'+p.version+'.vsix'; execSync('code --install-extension '+vsix,{stdio:'inherit'});\"",
-		"vsix:uninstall": "node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const id=p.publisher+'.'+p.name; execSync('code --uninstall-extension '+id,{stdio:'inherit'});\""
+		"vsix:uninstall": "node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const id=p.publisher+'.'+p.name; execSync('code --uninstall-extension '+id,{stdio:'inherit'});\"",
+		"format": "biome format --write ."
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.10",
