@@ -1,6 +1,6 @@
 # helloworld
 
-開発用の手順や運用メモは [DEVELOPMENT.md](DEVELOPMENT.md) にまとめています
+※ 開発用の手順や運用メモは [DEVELOPMENT.md](DEVELOPMENT.md) 参照
 
 ## Features
 
