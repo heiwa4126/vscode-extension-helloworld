@@ -49,7 +49,7 @@ pnpm run vsix:uninstall
 
 で、このパッケージをインストール・アンインストールできます。
 
-### VSIX のインストール
+### 手動で VSIX のインストール
 
 作成した VSIX を VS Code にインストールするには、以下のいずれかの方法を使います。
 
@@ -71,7 +71,7 @@ code --install-extension dist/helloworld-0.0.1.vsix
 2. `...` メニュー → `Install from VSIX...` を選択
 3. `dist/<name>-<version>.vsix` を選択
 
-### VSIX のアンインストール
+### 手動で VSIX のアンインストール
 
 インストールした拡張機能をアンインストールするには、以下のいずれかの方法を使います。
 
