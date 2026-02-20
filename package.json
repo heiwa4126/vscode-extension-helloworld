@@ -2,7 +2,7 @@
 	"name": "helloworld",
 	"publisher": "yourname",
 	"displayName": "HelloWorld",
-	"description": "",
+	"description": "VSCode Extension tutorial sample. see https://code.visualstudio.com/api/get-started/your-first-extension",
 	"version": "0.0.1",
 	"repository": {
 		"type": "git",

@@ -1,0 +1,34 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: npm # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: monthly
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+    # Ignore transitive devDependencies that cannot be directly updated
+    # 直接更新できない推移的な devDependencies を無視
+    ignore:
+      # minimatch (high): Used by @vscode/vsce - waiting for upstream update
+      # minimatch (高): @vscode/vsce により使用 - 上流の更新待ち
+      - dependency-name: "minimatch"
+        # Allow parent package updates that might fix this
+        # これを修正する可能性のある親パッケージの更新は許可
+        update-types: ["version-update:semver-patch"]
+
+      # ajv (moderate): Used by eslint - waiting for upstream update
+      # ajv (中): eslint により使用 - 上流の更新待ち
+      - dependency-name: "ajv"
+        update-types: ["version-update:semver-patch"]
+
+      # diff (low): Used by mocha (via @vscode/test-cli) - waiting for upstream update
+      # diff (低): mocha により使用 (@vscode/test-cli 経由) - 上流の更新待ち
+      - dependency-name: "diff"
+        update-types: ["version-update:semver-patch"]
