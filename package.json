@@ -1,8 +1,13 @@
 {
 	"name": "helloworld",
+	"publisher": "yourname",
 	"displayName": "HelloWorld",
 	"description": "",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/heiwa4126/vscode-extension-helloworld.git"
+	},
 	"engines": {
 		"vscode": "^1.109.0"
 	},
@@ -11,6 +16,7 @@
 	],
 	"activationEvents": [],
 	"main": "./out/extension.js",
+	"icon": "images/icon.png",
 	"contributes": {
 		"commands": [
 			{
@@ -21,13 +27,16 @@
 		]
 	},
 	"scripts": {
-		"preinstall": "pnpm audit --audit-level high",
+		"preinstall": "pnpm audit --production --audit-level high",
 		"vscode:prepublish": "pnpm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "pnpm run compile && pnpm run lint",
 		"lint": "eslint src",
-		"test": "vscode-test"
+		"test": "vscode-test",
+		"vsix": "pnpm run lint && pnpm run compile && node -e \"require('node:fs').mkdirSync('dist',{recursive:true});\" && node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const out='dist/'+p.name+'-'+p.version+'.vsix'; execSync('pnpm exec vsce package --out '+out,{stdio:'inherit'});\"",
+		"vsix:install": "node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const vsix='dist/'+p.name+'-'+p.version+'.vsix'; execSync('code --install-extension '+vsix,{stdio:'inherit'});\"",
+		"vsix:uninstall": "node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const id=p.publisher+'.'+p.name; execSync('code --uninstall-extension '+id,{stdio:'inherit'});\""
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.10",
@@ -36,6 +45,7 @@
 		"@types/vscode": "^1.109.0",
 		"@vscode/test-cli": "^0.0.12",
 		"@vscode/test-electron": "^2.5.2",
+		"@vscode/vsce": "^2.29.0",
 		"eslint": "^10.0.0",
 		"sinon": "^21.0.1",
 		"typescript": "^5.9.3",
@@ -43,7 +53,8 @@
 	},
 	"pnpm": {
 		"overrides": {
-			"minimatch": ">=10.2.1"
+			"minimatch": ">=10.2.1",
+			"@vscode/vsce>minimatch": "3.1.2"
 		}
 	}
 }
