@@ -41,15 +41,15 @@
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.10",
-		"@types/node": "~25.3.2",
+		"@types/node": "~25.3.5",
 		"@types/sinon": "^21.0.0",
-		"@types/vscode": "^1.109.0",
+		"@types/vscode": "^1.110.0",
 		"@vscode/test-cli": "^0.0.12",
 		"@vscode/test-electron": "^2.5.2",
 		"@vscode/vsce": "^3.7.1",
-		"eslint": "^10.0.2",
-		"sinon": "^21.0.1",
+		"eslint": "^10.0.3",
+		"sinon": "^21.0.3",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.56.1"
+		"typescript-eslint": "^8.57.1"
 	}
 }
