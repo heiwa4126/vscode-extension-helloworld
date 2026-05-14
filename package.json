@@ -1,31 +1,17 @@
 {
 	"name": "helloworld",
-	"publisher": "yourname",
 	"displayName": "HelloWorld",
-	"description": "VSCode Extension tutorial sample. see https://code.visualstudio.com/api/get-started/your-first-extension",
 	"version": "0.0.1",
+	"description": "VSCode Extension tutorial sample. see https://code.visualstudio.com/api/get-started/your-first-extension",
+	"categories": [
+		"Other"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/heiwa4126/vscode-extension-helloworld.git"
 	},
-	"engines": {
-		"vscode": "^1.109.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [],
+	"publisher": "yourname",
 	"main": "./out/extension.js",
-	"icon": "images/icon.png",
-	"contributes": {
-		"commands": [
-			{
-				"command": "helloworld.helloWorld",
-				"title": "Hello World",
-				"category": "My Tutorial"
-			}
-		]
-	},
 	"scripts": {
 		"preinstall": "pnpm audit --production --audit-level high",
 		"vscode:prepublish": "pnpm run compile",
@@ -37,19 +23,34 @@
 		"vsix": "pnpm run lint && pnpm run compile && node -e \"require('node:fs').mkdirSync('dist',{recursive:true});\" && node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const out='dist/'+p.name+'-'+p.version+'.vsix'; execSync('pnpm exec vsce package --out '+out,{stdio:'inherit'});\"",
 		"vsix:install": "node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const vsix='dist/'+p.name+'-'+p.version+'.vsix'; execSync('code --install-extension '+vsix,{stdio:'inherit'});\"",
 		"vsix:uninstall": "node -e \"const p=require('./package.json'); const {execSync}=require('node:child_process'); const id=p.publisher+'.'+p.name; execSync('code --uninstall-extension '+id,{stdio:'inherit'});\"",
-		"format": "biome format --write ."
+		"format": "oxfmt",
+		"check": "oxfmt && oxlint --fix"
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.10",
-		"@types/node": "~25.6.0",
+		"@types/node": "~25.7.0",
 		"@types/sinon": "^21.0.1",
-		"@types/vscode": "^1.118.0",
+		"@types/vscode": "^1.120.0",
 		"@vscode/test-cli": "^0.0.12",
 		"@vscode/test-electron": "^2.5.2",
 		"@vscode/vsce": "^3.9.1",
 		"eslint": "^10.3.0",
-		"sinon": "^21.1.2",
+		"sinon": "^22.0.0",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.59.1"
+		"typescript-eslint": "^8.59.3"
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "helloworld.helloWorld",
+				"title": "Hello World",
+				"category": "My Tutorial"
+			}
+		]
+	},
+	"activationEvents": [],
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.109.0"
 	}
 }

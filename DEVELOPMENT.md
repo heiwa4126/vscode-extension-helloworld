@@ -11,7 +11,7 @@ VSCode 拡張の公式チュートリアルやってみました。
 
 ## TODO
 
-- [minimatch](https://www.npmjs.com/package/minimatch?activeTab=versions) v3.1.3が出たら調整すること
+- [minimatch](https://www.npmjs.com/package/minimatch?activeTab=versions) v3.1.3 が出たら調整すること
 
 ## セットアップ
 

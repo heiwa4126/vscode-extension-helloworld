@@ -32,3 +32,5 @@ updates:
       # diff (低): mocha により使用 (@vscode/test-cli 経由) - 上流の更新待ち
       - dependency-name: "diff"
         update-types: ["version-update:semver-patch"]
+    cooldown:
+      default-days: 7
