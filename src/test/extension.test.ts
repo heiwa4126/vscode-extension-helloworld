@@ -22,7 +22,7 @@ suite("Extension Test Suite", () => {
 		const commands = await vscode.commands.getCommands(true);
 		assert.ok(
 			commands.includes("helloworld.helloWorld"),
-			"Expected command helloworld.helloWorld to be registered.",
+			"Expected command helloworld.helloWorld to be registered."
 		);
 	});
 
@@ -47,7 +47,7 @@ suite("Extension Test Suite", () => {
 			const [message] = showWarningMessageStub.firstCall.args;
 			assert.ok(
 				typeof message === "string" && message.startsWith("Hello VS Code. Current time is "),
-				"Expected hello world warning message to include the current time.",
+				"Expected hello world warning message to include the current time."
 			);
 		} finally {
 			showWarningMessageStub.restore();

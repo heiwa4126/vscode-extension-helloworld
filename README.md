@@ -4,12 +4,12 @@
 
 ## Features
 
-- コマンドパレットから `Hello World` を実行するとメッセージを表示します。
+- コマンドパレットから`Hello World`を実行するとメッセージを表示します。
 
 ## Usage
 
 1. コマンドパレットを開く
-2. `My Tutorial: Hello World` を実行
+2. `My Tutorial: Hello World`を実行
 
 ## Requirements
 
